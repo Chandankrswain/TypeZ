@@ -2,7 +2,7 @@ import { Footer, Navbar, TextBox } from "./components";
 
 function App() {
   return (
-    <div className="bg-[#121212]">
+    <div className="flex flex-col h-screen justify-between items-center">
       <Navbar />
       <TextBox />
       <Footer />
