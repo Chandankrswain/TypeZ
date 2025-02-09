@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { generate } from "random-words";
 
 const initialState = {
-  value: generate({ exactly: 25, join: " " }),
+  value: generate({ exactly: 30, join: " " }),
 };
 
 export const randomWordsSlice = createSlice({

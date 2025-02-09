@@ -1,10 +1,13 @@
-import { Footer, Navbar, TextBox } from "./components";
+import { Footer, Navbar, TextBox, Timer } from "./components";
 
 function App() {
   return (
-    <div className="flex flex-col h-screen justify-between items-center">
+    <div className="flex flex-col h-screen justify-between items-center font-robotoMono">
       <Navbar />
-      <TextBox />
+      <div className="flex flex-col items-center h-[200px] w-[80%] justify-evenly">
+        <Timer />
+        <TextBox />
+      </div>
       <Footer />
     </div>
   );
