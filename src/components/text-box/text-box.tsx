@@ -19,6 +19,3 @@ export const TextBox = () => {
 };
 
 export default TextBox;
-// just for commit
-
-// added the new comment just for commit
