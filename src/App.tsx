@@ -11,5 +11,5 @@ function App() {
       <Footer />
     </div>
   );
-} // will be used to export the App component
+} 
 export default App;
