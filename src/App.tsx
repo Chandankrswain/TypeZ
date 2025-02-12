@@ -7,7 +7,7 @@ function App() {
       <div className="flex flex-col items-center h-[200px] w-[80%] justify-evenly">
         <Timer />
         <TextBox />
-        <RestartButton onRestart={() => null} />
+        <RestartButton onRestart={() => window.location.reload()} />
       </div>
 
       <Footer />
