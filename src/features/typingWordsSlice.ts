@@ -5,7 +5,12 @@ export const typingWordsSlice = createSlice({
   initialState: {
     value: "",
   },
-  reducers: {},
+  reducers: {
+    HANDLE_CHANGE: (state, action) => {
+      state.value = action.payload;
+      console.log(state.value);
+    },
+  },
 });
 
 export const {} = typingWordsSlice.actions;

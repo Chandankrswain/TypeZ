@@ -1,4 +1,4 @@
-import { Footer, Navbar, TextBox, Timer } from "./components";
+import { Footer, Navbar, RestartButton, TextBox, Timer } from "./components";
 
 function App() {
   return (
@@ -8,8 +8,9 @@ function App() {
         <Timer />
         <TextBox />
       </div>
+      <RestartButton onRestart={() => null} />
       <Footer />
     </div>
   );
-} 
+}
 export default App;
