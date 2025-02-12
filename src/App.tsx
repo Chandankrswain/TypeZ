@@ -7,8 +7,10 @@ function App() {
       <div className="flex flex-col items-center h-[200px] w-[80%] justify-evenly">
         <Timer />
         <TextBox />
-        <RestartButton onRestart={() => window.location.reload()} /> // adde the
-        temporary solution to restart the test later will fix the business logic
+        <RestartButton onRestart={() => window.location.reload()} />{" "}
+        {/* added
+        the temporary solution to restart the test later will fix the business
+        logic */}
       </div>
 
       <Footer />
