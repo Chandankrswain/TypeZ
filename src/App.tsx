@@ -7,8 +7,9 @@ function App() {
       <div className="flex flex-col items-center h-[200px] w-[80%] justify-evenly">
         <Timer />
         <TextBox />
+        <RestartButton onRestart={() => null} />
       </div>
-      <RestartButton onRestart={() => null} />
+
       <Footer />
     </div>
   );

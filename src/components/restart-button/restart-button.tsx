@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { VscDebugRestart } from "react-icons/vsc";
 
 interface RestartButtonProps {
   onRestart: () => void;
@@ -14,7 +15,15 @@ export const RestartButton = ({
     handleRestart();
   };
 
-  return <button ref={buttonRef} onClick={handleClick}></button>;
+  return (
+    <button
+      ref={buttonRef}
+      onClick={handleClick}
+      className="text-[#646669] m-4"
+    >
+      <VscDebugRestart className="w-6 h-6 hover:text-[#bb86fc]" />
+    </button>
+  );
 };
 
 export default RestartButton;
