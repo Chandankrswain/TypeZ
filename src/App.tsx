@@ -1,4 +1,11 @@
-import { Footer, Navbar, RestartButton, TextBox, Timer } from "./components";
+import {
+  Footer,
+  Navbar,
+  RestartButton,
+  TextBox,
+  Timer,
+  UserTextbox,
+} from "./components";
 
 function App() {
   return (
@@ -6,13 +13,12 @@ function App() {
       <Navbar />
       <div className="flex flex-col items-center h-[200px] w-[80%] justify-evenly">
         <Timer />
-        <TextBox />
+        <div>
+          <TextBox />
+          <UserTextbox />
+        </div>
         <RestartButton onRestart={() => window.location.reload()} />{" "}
-        {/* added
-        the temporary solution to restart the test later will fix the business
-        logic */}
       </div>
-
       <Footer />
     </div>
   );
