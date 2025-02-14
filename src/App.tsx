@@ -15,7 +15,7 @@ function App() {
         <Timer />
         <div>
           <TextBox />
-          <UserTextbox />
+          {/* <UserTextbox /> */}
         </div>
         <RestartButton onRestart={() => window.location.reload()} />{" "}
       </div>
