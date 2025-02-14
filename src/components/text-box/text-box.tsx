@@ -22,7 +22,6 @@ export const TextBox = () => {
           </span>
         ))}
       </div>
-      {/*}
 
       {/* Overlapping Input */}
       <input
