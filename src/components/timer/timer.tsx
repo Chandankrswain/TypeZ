@@ -27,14 +27,20 @@ export const Timer = ({
 
       return () => clearInterval(interval);
     }
+
+    if (timeCountDown === 0) {
+      setTimeout(() => {
+        alert("Time's up!");
+      }, 0);
+    }
   }, [isTimerRunning, timeCountDown, dispatch]);
 
-  // 🔹 Update time and focus input
+  // Update time and focus input
   const updateTime = (e: React.MouseEvent<HTMLButtonElement>) => {
     const newTime = parseInt(e.currentTarget.id);
     dispatch(UPDATE_TIME(newTime));
 
-    // ✅ Reset input and focus
+    // Reset input and focus
     if (inputRef.current) {
       inputRef.current.value = "";
       inputRef.current.focus();

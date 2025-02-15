@@ -24,17 +24,18 @@ export const TextBox = ({
 
   return (
     <div className="relative text-left flex flex-col mt-4">
+      {/* 🔹 Ultra-Smooth Typing Animation */}
       <div className="text-3xl tracking-wide leading-12">
         {generateRandomWords.split("").map((char, idx) => (
           <span
             key={idx}
-            className={
+            className={`transition-all duration-500 ease-out opacity-80 ${
               getUserInput[idx] === char
-                ? "text-gray-400"
+                ? "text-gray-400 opacity-100" // ✅ Correct character (smooth fade)
                 : getUserInput[idx]
-                ? "text-[#ca4754]"
-                : "text-[#646669]"
-            }
+                ? "text-[#ca4754] opacity-100" // ❌ Incorrect character (smooth transition)
+                : "text-[#646669] opacity-60" // ⏳ Yet to type (faded)
+            }`}
           >
             {char}
           </span>
@@ -46,6 +47,7 @@ export const TextBox = ({
           value={getUserInput}
           onChange={handleChange}
           autoFocus
+          spellCheck="false"
         />
       </div>
     </div>
