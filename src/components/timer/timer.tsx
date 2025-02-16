@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../redux/hooks";
-import {
-  UPDATE_TIME,
-  TIME_COUNTDOWN,
-  START_TIMER,
-} from "../../features/timeCountSlice";
+import { UPDATE_TIME, TIME_COUNTDOWN } from "../../features/timeCountSlice";
 
 export const Timer = ({
   inputRef,

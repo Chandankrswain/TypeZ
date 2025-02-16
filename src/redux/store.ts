@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import randomWordsReducer from "../features/randomWordsSlice";
 import timeCountReducer from "../features/timeCountSlice";
-import typingWordsSlice from "../features/typingWordsSlice";
+import typingWordsReducer from "../features/typingWordsSlice";
+import resultReducer from "../features/resultSlice";
 
 export const store = configureStore({
   reducer: {
     randomWords: randomWordsReducer,
     timeCount: timeCountReducer,
-    typingWords: typingWordsSlice,
+    typingWords: typingWordsReducer,
+    result: resultReducer,
   },
 });
 
