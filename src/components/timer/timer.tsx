@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../redux/hooks";
 import { UPDATE_TIME, TIME_COUNTDOWN } from "../../features/timeCountSlice";
+import ResultScreen from "../result-screen/result-screen";
 
 export const Timer = ({
   inputRef,
@@ -26,7 +27,7 @@ export const Timer = ({
 
     if (timeCountDown === 0) {
       setTimeout(() => {
-        alert("Time's up!");
+        <ResultScreen />;
       }, 0);
     }
   }, [isTimerRunning, timeCountDown, dispatch]);
