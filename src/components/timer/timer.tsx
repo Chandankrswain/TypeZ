@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../redux/hooks";
 import { UPDATE_TIME, TIME_COUNTDOWN } from "../../features/timeCountSlice";
-import ResultScreen from "../result-screen/result-screen";
+import { ResultScreen } from "../result-screen";
 
 export const Timer = ({
   inputRef,
@@ -15,6 +15,9 @@ export const Timer = ({
     (state) => state.timeCount.isTimerRunning
   );
 
+  // State to control result screen visibility
+  const [showResult, setShowResult] = useState(false);
+
   // 🔹 Start countdown when typing starts
   useEffect(() => {
     if (isTimerRunning && timeCountDown > 0) {
@@ -26,9 +29,7 @@ export const Timer = ({
     }
 
     if (timeCountDown === 0) {
-      setTimeout(() => {
-        <ResultScreen />;
-      }, 0);
+      setShowResult(true); // Show result screen when timer reaches 0
     }
   }, [isTimerRunning, timeCountDown, dispatch]);
 
@@ -36,6 +37,7 @@ export const Timer = ({
   const updateTime = (e: React.MouseEvent<HTMLButtonElement>) => {
     const newTime = parseInt(e.currentTarget.id);
     dispatch(UPDATE_TIME(newTime));
+    setShowResult(false); // Hide result screen on restart
 
     // Reset input and focus
     if (inputRef.current) {
@@ -45,32 +47,36 @@ export const Timer = ({
   };
 
   return (
-    <div className="text-[#646669] text-lg font-bold w-full flex justify-between">
-      <div className="text-3xl text-[#bb86fc]">{timeCountDown}</div>
-      <div className="flex justify-between mr-7 w-[8%]">
-        <button
-          className="cursor-pointer hover:text-[#bb86fc]"
-          onClick={updateTime}
-          id="10"
-        >
-          10s
-        </button>
-        <button
-          className="cursor-pointer hover:text-[#bb86fc]"
-          onClick={updateTime}
-          id="20"
-        >
-          20s
-        </button>
-        <button
-          className="cursor-pointer hover:text-[#bb86fc]"
-          onClick={updateTime}
-          id="30"
-        >
-          30s
-        </button>
+    <>
+      {showResult && <ResultScreen />}{" "}
+      {/* Show result screen when timer hits 0 */}
+      <div className="text-[#646669] text-lg font-bold w-full flex justify-between">
+        <div className="text-3xl text-[#bb86fc]">{timeCountDown}</div>
+        <div className="flex justify-between mr-7 w-[8%]">
+          <button
+            className="cursor-pointer hover:text-[#bb86fc]"
+            onClick={updateTime}
+            id="10"
+          >
+            10s
+          </button>
+          <button
+            className="cursor-pointer hover:text-[#bb86fc]"
+            onClick={updateTime}
+            id="20"
+          >
+            20s
+          </button>
+          <button
+            className="cursor-pointer hover:text-[#bb86fc]"
+            onClick={updateTime}
+            id="30"
+          >
+            30s
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
