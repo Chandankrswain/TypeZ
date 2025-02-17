@@ -18,7 +18,7 @@ export const Timer = ({
   // State to control result screen visibility
   const [showResult, setShowResult] = useState(false);
 
-  // 🔹 Start countdown when typing starts
+  //  Start countdown when typing starts
   useEffect(() => {
     if (isTimerRunning && timeCountDown > 0) {
       const interval = setInterval(() => {

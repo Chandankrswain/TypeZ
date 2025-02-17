@@ -21,7 +21,7 @@ export const RestartButton = ({
       onClick={handleClick}
       className="text-[#646669] m-4"
     >
-      <VscDebugRestart className="w-6 h-6 hover:text-[#bb86fc]" />
+      <VscDebugRestart className="w-6 h-6 hover:text-[#bb86fc] mx-6 my-4" />
     </button>
   );
 };
