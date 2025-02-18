@@ -29,7 +29,7 @@ export const TextBox = ({
         {generateRandomWords.split("").map((char, idx) => (
           <span
             key={idx}
-            className={`transition-all duration-500 ease-out opacity-80 ${
+            className={`transition-all duration-00 ease-out opacity-80 ${
               getUserInput[idx] === char
                 ? "text-gray-400 opacity-100" // ✅ Correct character (smooth fade)
                 : getUserInput[idx]
@@ -53,5 +53,4 @@ export const TextBox = ({
     </div>
   );
 };
-
 export default TextBox;
