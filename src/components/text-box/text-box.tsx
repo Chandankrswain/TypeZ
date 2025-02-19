@@ -31,10 +31,10 @@ export const TextBox = ({
             key={idx}
             className={`transition-all duration-00 ease-out opacity-80 ${
               getUserInput[idx] === char
-                ? "text-gray-400 opacity-100" // ✅ Correct character (smooth fade)
+                ? "text-gray-400 opacity-100" //  Correct character (smooth fade)
                 : getUserInput[idx]
-                ? "text-[#ca4754] opacity-100" // ❌ Incorrect character (smooth transition)
-                : "text-[#646669] opacity-60" // ⏳ Yet to type (faded)
+                ? "text-[#ca4754] opacity-100" //  Incorrect character (smooth transition)
+                : "text-[#646669] opacity-60" //  Yet to type (faded)
             }`}
           >
             {char}
