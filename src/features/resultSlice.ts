@@ -25,16 +25,12 @@ export const resultSlice = createSlice({
     setErrors: (state, action: PayloadAction<number>) => {
       state.errors = action.payload;
     },
-    setCorrectChars: (state, action: PayloadAction<number>) => {
-      state.correctChars = action.payload;
-    },
     setTotalTime: (state, action: PayloadAction<number>) => {
       state.totalTime = action.payload;
     },
   },
 });
 
-export const { setWPM, setErrors, setCorrectChars, setTotalTime } =
-  resultSlice.actions;
+export const { setWPM, setErrors, setTotalTime } = resultSlice.actions;
 
 export default resultSlice.reducer;
