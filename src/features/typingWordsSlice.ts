@@ -8,7 +8,6 @@ export const typingWordsSlice = createSlice({
   reducers: {
     HANDLE_CHANGE: (state, action) => {
       state.value = action.payload;
-      console.log(state.value);
     },
   },
 });

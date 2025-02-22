@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../redux/hooks";
 import { UPDATE_TIME, TIME_COUNTDOWN } from "../../features/timeCountSlice";
 import { ResultScreen } from "../result-screen";
+import { SET_WPM } from "../../features/resultSlice";
 
 export const Timer = ({
   inputRef,
@@ -37,6 +38,7 @@ export const Timer = ({
   const updateTime = (e: React.MouseEvent<HTMLButtonElement>) => {
     const newTime = parseInt(e.currentTarget.id);
     dispatch(UPDATE_TIME(newTime));
+    dispatch(SET_WPM(newTime));
     setShowResult(false); // Hide result screen on restart
 
     // Reset input and focus

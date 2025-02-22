@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { START_TIMER } from "../../features/timeCountSlice";
+import { SET_CORRECT_CHARS } from "../../features/resultSlice";
 
 export const TextBox = ({
   inputRef,
@@ -10,12 +11,24 @@ export const TextBox = ({
   const generateRandomWords = useAppSelector(
     (state) => state.randomWords.value
   );
+
   const getUserInput = useAppSelector((state) => state.typingWords.value);
+
   const isTimerRunning = useAppSelector(
     (state) => state.timeCount.isTimerRunning
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+
+    const correctChars = inputValue.split("").reduce((count, char, idx) => {
+      return char === generateRandomWords[idx] ? count + 1 : count;
+    }, 0);
+
+    console.log("Correct Chars:", correctChars);
+
+    dispatch(SET_CORRECT_CHARS(correctChars));
+
     if (!isTimerRunning) {
       dispatch(START_TIMER()); // 🔹 Start timer when typing starts
     }
