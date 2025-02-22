@@ -22,8 +22,9 @@ export const TextBox = ({
 
   const handleCapsLock = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.getModifierState("CapsLock") === true) {
-      alert("Caps Lock is on");
       setIsCaps(true);
+    } else {
+      setIsCaps(false);
     }
   };
 
