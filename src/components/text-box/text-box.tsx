@@ -11,12 +11,17 @@ export const TextBox = ({
   const generateRandomWords = useAppSelector(
     (state) => state.randomWords.value
   );
-
   const getUserInput = useAppSelector((state) => state.typingWords.value);
 
   const isTimerRunning = useAppSelector(
     (state) => state.timeCount.isTimerRunning
   );
+
+  const handleCapsLock = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.getModifierState("CapsLock") === true) {
+      alert("Caps Lock is on");
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -24,8 +29,6 @@ export const TextBox = ({
     const correctChars = inputValue.split("").reduce((count, char, idx) => {
       return char === generateRandomWords[idx] ? count + 1 : count;
     }, 0);
-
-    console.log("Correct Chars:", correctChars);
 
     dispatch(SET_CORRECT_CHARS(correctChars));
 
@@ -59,6 +62,7 @@ export const TextBox = ({
           className="absolute left-0 top-0 w-full min-h-[50px] bg-transparent whitespace-pre-wrap tracking-wide outline-none text-transparent caret-[#bb86fc]"
           value={getUserInput}
           onChange={handleChange}
+          onKeyDown={handleCapsLock}
           autoFocus
           spellCheck="false"
         />
