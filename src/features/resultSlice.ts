@@ -23,7 +23,6 @@ export const resultSlice = createSlice({
     },
     SET_WPM: (state, action) => {
       state.totalTime = action.payload;
-      console.log(state.correctChars, state.totalTime);
       const wpm = Math.round((state.correctChars / 5 / state.totalTime) * 60);
       state.wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
     },
