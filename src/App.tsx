@@ -11,7 +11,7 @@ function App() {
       <div className="flex flex-col items-center h-[200px] w-[80%] justify-between">
         <Timer inputRef={inputRef} />
         <div>
-          <TextBox inputRef={inputRef} />
+          <TextBox divRef={inputRef} />
         </div>
         <RestartButton onRestart={() => window.location.reload()} />
       </div>
