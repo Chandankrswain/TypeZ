@@ -5,3 +5,4 @@ export * from "./timer";
 export * from "./restart-button";
 export * from "./result-screen";
 export * from "./capslock-indicator";
+export * from "./keyboard-layout";

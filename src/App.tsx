@@ -1,6 +1,12 @@
 import { useRef } from "react";
-import { Footer, Navbar, RestartButton, Timer } from "./components";
-import TextBox from "./components/text-box/text-box";
+import {
+  Footer,
+  KeyboardLayout,
+  Navbar,
+  RestartButton,
+  TextBox,
+  Timer,
+} from "./components";
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -15,6 +21,7 @@ function App() {
         </div>
         <RestartButton onRestart={() => window.location.reload()} />
       </div>
+      <KeyboardLayout />
       <Footer />
     </div>
   );
