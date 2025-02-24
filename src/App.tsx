@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   Footer,
   KeyboardLayout,
@@ -10,6 +10,8 @@ import {
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const [viewKeyword, setViewKeyboard] = useState();
 
   return (
     <div className="flex flex-col h-screen justify-between items-center font-robotoMono">
