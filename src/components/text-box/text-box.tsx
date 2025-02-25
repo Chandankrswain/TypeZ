@@ -18,7 +18,7 @@ export const TextBox = ({
     (state) => state.timeCount.isTimerRunning
   );
 
-  const handleCapsLock = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleCapsLock = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.getModifierState("CapsLock") === true) {
       setIsCaps(true);
     } else {
@@ -50,6 +50,13 @@ export const TextBox = ({
     }, 0);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // 🔹 Enter key ka default behavior rokna
+    }
+    handleCapsLock(e);
+  };
+
   return (
     <div className="relative text-left flex flex-col mt-4">
       {isCaps && <CapslockIndicator />}
@@ -75,7 +82,7 @@ export const TextBox = ({
           contentEditable
           className="select-none user-select-none absolute left-0 top-0 w-full min-h-[50px] bg-transparent whitespace-pre-wrap tracking-wide outline-none text-transparent caret-[#bb86fc]"
           onInput={handleInput}
-          onKeyDown={handleCapsLock}
+          onKeyDown={handleKeyDown} // 🔹 Keydown event ko yahan attach kiya
           autoFocus
           spellCheck="false"
         ></div>
