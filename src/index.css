@@ -3,3 +3,7 @@
 @theme {
   --font-robotoMono: "Roboto Mono", sans-serif;
 }
+.user-select-none {
+  user-select: none;
+  -webkit-user-select: none;
+}

@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { START_TIMER } from "../../features/timeCountSlice";
-import { SET_CORRECT_CHARS } from "../../features/resultSlice";
+import { SET_CORRECT_CHARS, SET_ERRORS } from "../../features/resultSlice";
 import { useEffect, useState } from "react";
 import { CapslockIndicator } from "../capslock-indicator";
 
 export const TextBox = ({
   divRef,
 }: {
-  divRef: React.RefObject<HTMLInputElement | null>;
+  divRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   const dispatch = useAppDispatch();
   const generateRandomWords =
@@ -19,11 +19,7 @@ export const TextBox = ({
   );
 
   const handleCapsLock = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.getModifierState("CapsLock") === true) {
-      setIsCaps(true);
-    } else {
-      setIsCaps(false);
-    }
+    setIsCaps(e.getModifierState("CapsLock"));
   };
 
   useEffect(() => {
@@ -33,26 +29,37 @@ export const TextBox = ({
   }, []);
 
   const handleInput = () => {
-    if (!divRef.current) return; //Null check before accessing innerText
-    const inputValue = divRef.current.innerText;
-    setTimeout(() => {
-      dispatch({ type: "typingWords/HANDLE_CHANGE", payload: inputValue });
+    if (!divRef.current) return;
+    const inputValue = divRef.current.innerText.trim(); // Trim spaces
 
-      const correctChars = inputValue.split("").reduce((count, char, idx) => {
-        return char === generateRandomWords[idx] ? count + 1 : count;
-      }, 0);
+    dispatch({ type: "typingWords/HANDLE_CHANGE", payload: inputValue });
 
-      dispatch(SET_CORRECT_CHARS(correctChars));
+    if (!isTimerRunning) {
+      dispatch(START_TIMER()); // Start timer when typing starts
+    }
 
-      if (!isTimerRunning) {
-        dispatch(START_TIMER()); // Start timer when typing starts
-      }
+    // Reset character colors when input is empty
+    if (inputValue === "") {
+      dispatch(SET_CORRECT_CHARS(0));
+      dispatch(SET_ERRORS(0));
+      return;
+    }
+
+    const correctChars = inputValue.split("").reduce((count, char, idx) => {
+      return char === generateRandomWords[idx] ? count + 1 : count;
     }, 0);
+
+    const errorChars = inputValue.split("").reduce((count, char, idx) => {
+      return char !== generateRandomWords[idx] ? count + 1 : count;
+    }, 0);
+
+    dispatch(SET_CORRECT_CHARS(correctChars));
+    dispatch(SET_ERRORS(errorChars));
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // 🔹 Enter key ka default behavior rokna
+      e.preventDefault(); // Enter key ka default behavior rokna
     }
     handleCapsLock(e);
   };
@@ -65,24 +72,23 @@ export const TextBox = ({
         {generateRandomWords.split("").map((char, idx) => (
           <span
             key={idx}
-            className={`transition-all duration-00 ease-out opacity-80 ${
-              getUserInput[idx] === char
-                ? "text-gray-400 opacity-100" //  Correct character (smooth fade)
-                : getUserInput[idx]
-                ? "text-[#ca4754] opacity-100" //  Incorrect character (smooth transition)
-                : "text-[#646669] opacity-60" //  Yet to type (faded)
+            className={`transition-all duration-200 ease-out opacity-80 ${
+              getUserInput.length > idx
+                ? getUserInput[idx] === char
+                  ? "text-gray-400 opacity-100" // ✅ Correct character (gray)
+                  : "text-[#ca4754] opacity-100" // ❌ Incorrect character (red)
+                : "text-[#646669] opacity-60" // ⏳ Yet to type (faded gray)
             }`}
           >
             {char}
           </span>
         ))}
-
         <div
           ref={divRef}
           contentEditable
           className="select-none user-select-none absolute left-0 top-0 w-full min-h-[50px] bg-transparent whitespace-pre-wrap tracking-wide outline-none text-transparent caret-[#bb86fc]"
           onInput={handleInput}
-          onKeyDown={handleKeyDown} // 🔹 Keydown event ko yahan attach kiya
+          onKeyDown={handleKeyDown}
           autoFocus
           spellCheck="false"
         ></div>
@@ -90,4 +96,5 @@ export const TextBox = ({
     </div>
   );
 };
+
 export default TextBox;
