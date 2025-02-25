@@ -3,7 +3,11 @@
 @theme {
   --font-robotoMono: "Roboto Mono", sans-serif;
 }
+.parent-container {
+  user-select: none !important; /* Forcefully disable selection */
+  -webkit-user-select: none !important;
+}
 .user-select-none {
-  user-select: none;
-  -webkit-user-select: none;
+  user-select: none !important;
+  -webkit-user-select: none !important;
 }

@@ -45,7 +45,7 @@ export const KeyboardLayout = () => {
   }, [getUserInput, generateRandomWords]);
 
   return (
-    <div className="text-[#646669] text-xl">
+    <div className="text-[#646669] text-xl parent-container">
       {[row1, row2, row3].map((row, rowIndex) => (
         <ul key={rowIndex} className="flex gap-2 justify-center mb-2">
           {row.map((char) => (
