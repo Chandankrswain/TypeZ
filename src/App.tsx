@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import {
   Footer,
+  Guide,
   KeyboardLayout,
   Navbar,
   RestartButton,
@@ -24,6 +25,7 @@ function App() {
         <RestartButton onRestart={() => window.location.reload()} />
       </div>
       <KeyboardLayout />
+      <Guide />
       <Footer />
     </div>
   );
