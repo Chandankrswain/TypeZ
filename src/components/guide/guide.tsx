@@ -6,7 +6,7 @@ export const Guide = () => {
       <div className="bg-[#646669] px-3 py-0.5 rounded">enter</div>
       <p>-</p>
       <p>restart test</p>
-    </div>
+    </div>// changes
   );
 };
 
