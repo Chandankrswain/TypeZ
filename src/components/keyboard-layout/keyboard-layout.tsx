@@ -19,7 +19,7 @@ export const KeyboardLayout = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
-      setPressedKey(key); //want to add new things
+      setPressedKey(key);
 
       // Check if the key pressed is correct
       const currentIndex = getUserInput.length;
