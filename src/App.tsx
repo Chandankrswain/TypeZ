@@ -15,17 +15,19 @@ function App() {
   const [viewKeyword, setViewKeyboard] = useState();
 
   return (
-    <div className="flex flex-col h-screen justify-between items-center font-robotoMono">
+    <div className="flex flex-col h-screen font-robotoMono justify-between">
       <Navbar />
-      <div className="flex flex-col items-center h-[200px] w-[80%] justify-between">
-        <Timer inputRef={inputRef} />
-        <div>
-          <TextBox divRef={inputRef} />
+      <div className="flex flex-col items-center justify-between h-[700px]">
+        <div className="flex flex-col items-center h-[200px] w-[80%] jusitfy-between">
+          <Timer inputRef={inputRef} />
+          <div>
+            <TextBox divRef={inputRef} />
+          </div>
+          <RestartButton onRestart={() => window.location.reload()} />
         </div>
-        <RestartButton onRestart={() => window.location.reload()} />
+        <KeyboardLayout />
+        <Guide />
       </div>
-      <KeyboardLayout />
-      <Guide />
       <Footer />
     </div>
   );
