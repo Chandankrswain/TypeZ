@@ -12,11 +12,14 @@ import {
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
 
   return (
     <div className="flex flex-col h-screen font-robotoMono justify-between">
-      <Navbar onToggleKeyboard={() => setIsKeyboardVisible((prev) => !prev)} />
+      <Navbar
+        onToggleKeyboard={() => setIsKeyboardVisible((prev) => !prev)}
+        onGameMode={() => setIsKeyboardVisible(true)}
+      />
 
       <div
         className={`flex flex-col items-center ${
