@@ -16,7 +16,7 @@ export const ResultScreen = () => {
     <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-50 pointer-events-auto flex-col ">
       <div className=" p-6 rounded-lg  text-center animate-fadeIn">
         <h2 className="text-5xl font-bold text-gray-400">Time's Up!</h2>
-        <p className="text-gray-500 mt-2 text-4xl mt-4 ">
+        <p className="text-gray-500 text-4xl mt-4 ">
           Your typing session is over.
         </p>
         <div className="flex justify-evenly mt-2">

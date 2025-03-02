@@ -31,6 +31,13 @@ export const TextBox = ({
   const handleInput = () => {
     if (!divRef.current) return;
     const inputValue = divRef.current.innerText.trim(); // Trim spaces
+    if (inputValue.length > generateRandomWords.length) {
+      divRef.current.innerText = inputValue.slice(
+        0,
+        generateRandomWords.length
+      );
+      return;
+    }
 
     dispatch({ type: "typingWords/HANDLE_CHANGE", payload: inputValue });
 
