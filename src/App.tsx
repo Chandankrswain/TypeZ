@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Footer,
@@ -15,6 +15,7 @@ function App() {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
+  const [targetKey, setTargetKey] = useState("a");
 
   const handleGameMode = () => {
     setIsKeyboardVisible(true);
@@ -51,7 +52,8 @@ function App() {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full"
             >
-              <KeyboardLayout />
+              <KeyboardLayout onKeyClick={() => {}} targetKey={targetKey} />
+              {/* ✅ Added `targetKey` */}
             </motion.div>
           )}
         </AnimatePresence>
