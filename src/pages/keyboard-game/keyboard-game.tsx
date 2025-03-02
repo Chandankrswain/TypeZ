@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {
   Footer,
+  Guide,
   KeyboardGameLayout,
   Navbar,
   RestartButton,
@@ -62,7 +63,7 @@ export const KeyboardGame = () => {
 
         <RestartButton onRestart={() => window.location.reload()} />
       </div>
-
+      <Guide />
       <Footer />
     </div>
   );
