@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { Footer, KeyboardLayout, Navbar } from "../../components";
+import {
+  Footer,
+  KeyboardLayout,
+  Navbar,
+  RestartButton,
+} from "../../components";
 
 const keys = "abcdefghijklmnopqrstuvwxyz"; // Allowed characters
 
@@ -51,6 +56,8 @@ export const KeyboardGame = () => {
         {isKeyBoardVisible && (
           <KeyboardLayout onKeyClick={handleKeyPress} targetKey={currentKey} />
         )}
+
+        <RestartButton onRestart={() => window.location.reload()} />
       </div>
 
       <Footer />
