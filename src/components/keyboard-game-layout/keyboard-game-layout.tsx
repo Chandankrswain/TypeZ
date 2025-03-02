@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const KeyboardGameLayout = ({
   onKeyClick,
@@ -43,13 +44,22 @@ export const KeyboardGameLayout = ({
   }, [targetKey, onKeyClick]);
 
   return (
-    <div className="text-[#646669] text-xl parent-container">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }} // Start from bottom
+      animate={{ opacity: 1, y: 0 }} // Move to normal position
+      exit={{ opacity: 0, y: 100 }} // Exit smoothly
+      transition={{ duration: 0.6, ease: "easeOut" }} // Smooth transition
+      className="text-[#646669] text-xl parent-container"
+    >
       {[row1, row2, row3].map((row, rowIndex) => (
         <ul key={rowIndex} className="flex gap-2 justify-center mb-2">
           {row.map((char) => (
-            <div
+            <motion.div
               key={char}
               onClick={() => onKeyClick?.(char)} // Handle click event
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className={`px-6 py-4 rounded-lg transition-all duration-200 cursor-pointer ${
                 pressedKey === char
                   ? wrongKey === char
@@ -61,30 +71,33 @@ export const KeyboardGameLayout = ({
               }`}
             >
               {char}
-            </div>
+            </motion.div>
           ))}
         </ul>
       ))}
 
       {/* Spacebar Key */}
       <ul className="flex justify-center">
-        <div
+        <motion.div
+          key="space"
+          onClick={() => onKeyClick?.(spaceKey)}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           className={`px-16 py-4 rounded-xl transition-all duration-200 cursor-pointer ${
             pressedKey === spaceKey
               ? wrongKey === spaceKey
                 ? "bg-[#ca4754] scale-110" // ❌ Wrong Key - Red
                 : "bg-[#bb86fc] scale-110" // ✅ Correct Key - Purple
               : spaceKey === targetKey
-              ? "bg-[#3a86ff] animate-pulse" // 🔹 Target Key - Blue Glow
+              ? "bg-[#3a86ff] animate-pulse scale-110" // 🔹 Target Key - Pulse & Scale
               : "bg-[#2c2e31]" // Default
           }`}
-          key="space"
-          onClick={() => onKeyClick?.(spaceKey)}
         >
           space
-        </div>
+        </motion.div>
       </ul>
-    </div>
+    </motion.div>
   );
 };
 
