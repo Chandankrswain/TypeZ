@@ -1,5 +1,6 @@
 import { FaGamepad, FaInfo, FaKeyboard } from "react-icons/fa";
 import Logo from "../../../public/logo.png";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   onToggleKeyboard: () => void;
@@ -7,9 +8,16 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ onToggleKeyboard, onGameMode }: NavbarProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex text-2xl h-26 items-center mx-52 my-2">
-      <div className="flex items-center mr-10 gap-1 ">
+      <div
+        onClick={() => {
+          navigate("/");
+        }}
+        className="flex items-center mr-10 gap-1 "
+      >
         <img className="w-14 h-14 m-1" src={Logo} alt="Logo" />
         <p className="text-2xl font-bold text-[#bb86fc]">TypeZ</p>
       </div>

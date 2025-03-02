@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {
   Footer,
-  KeyboardLayout,
+  KeyboardGameLayout,
   Navbar,
   RestartButton,
 } from "../../components";
@@ -54,7 +54,10 @@ export const KeyboardGame = () => {
 
         {/* Render Keyboard Layout */}
         {isKeyBoardVisible && (
-          <KeyboardLayout onKeyClick={handleKeyPress} targetKey={currentKey} />
+          <KeyboardGameLayout
+            onKeyClick={handleKeyPress}
+            targetKey={currentKey}
+          />
         )}
 
         <RestartButton onRestart={() => window.location.reload()} />
