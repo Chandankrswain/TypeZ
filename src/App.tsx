@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Footer,
@@ -9,16 +9,23 @@ import {
   TextBox,
   Timer,
 } from "./components";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
+
+  const handleGameMode = () => {
+    setIsKeyboardVisible(true);
+    navigate("/game");
+  };
 
   return (
     <div className="flex flex-col h-screen font-robotoMono justify-between">
       <Navbar
         onToggleKeyboard={() => setIsKeyboardVisible((prev) => !prev)}
-        onGameMode={() => setIsKeyboardVisible(true)}
+        onGameMode={handleGameMode}
       />
 
       <div

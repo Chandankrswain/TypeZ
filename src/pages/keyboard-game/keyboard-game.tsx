@@ -1,4 +1,4 @@
-const KeyboardGame = () => {
+export const KeyboardGame = () => {
   return <div>keyboard-game</div>;
 };
 
