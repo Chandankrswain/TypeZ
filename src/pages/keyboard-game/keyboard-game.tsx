@@ -14,6 +14,7 @@ export const KeyboardGame = () => {
   const [currentKey, setCurrentKey] = useState(""); // Key to press
   const [correctCount, setCorrectCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const [isSoundOn, setIsSoundOn] = useState(false); // ✅ Sound state
 
   // Function to generate a new key and update the state immediately
   const generateRandomKey = () => {
@@ -41,7 +42,12 @@ export const KeyboardGame = () => {
 
   return (
     <div className="flex flex-col items-center h-screen font-robotoMono justify-between">
-      <Navbar onGameMode={() => {}} onToggleKeyboard={() => {}} />
+      <Navbar
+        onGameMode={() => {}}
+        onToggleKeyboard={() => {}}
+        handleSound={() => setIsSoundOn((prev) => !prev)} // ✅ Toggle sound
+        isSoundOn={isSoundOn} // ✅ Pass sound state
+      />
 
       <div className="flex flex-col items-center justify-center h-full">
         {/* Show Random Key */}
@@ -58,6 +64,7 @@ export const KeyboardGame = () => {
           <KeyboardGameLayout
             onKeyClick={handleKeyPress}
             targetKey={currentKey}
+            isSoundOn={isSoundOn} // ✅ Pass sound state
           />
         )}
 
@@ -68,5 +75,3 @@ export const KeyboardGame = () => {
     </div>
   );
 };
-
-export default KeyboardGame;
