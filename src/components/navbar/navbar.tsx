@@ -1,6 +1,7 @@
 import { FaGamepad, FaInfo, FaKeyboard } from "react-icons/fa";
 import Logo from "../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
+import { HiSpeakerWave } from "react-icons/hi2";
 
 interface NavbarProps {
   onToggleKeyboard: () => void;
@@ -16,7 +17,7 @@ export const Navbar = ({ onToggleKeyboard, onGameMode }: NavbarProps) => {
         onClick={() => {
           navigate("/");
         }}
-        className="flex items-center mr-10 gap-1 "
+        className="flex items-center mr-10 gap-1 cursor-pointer"
       >
         <img className="w-14 h-14 m-1" src={Logo} alt="Logo" />
         <p className="text-2xl font-bold text-[#bb86fc]">TypeZ</p>
@@ -33,6 +34,7 @@ export const Navbar = ({ onToggleKeyboard, onGameMode }: NavbarProps) => {
           onClick={onGameMode}
         />
         <FaInfo className="w-5 h-4 hover:text-gray-300 " />
+        <HiSpeakerWave className="w-5 h-4 hover:text-gray-300 " />
       </div>
     </div>
   );
