@@ -1,7 +1,7 @@
 import { FaGamepad, FaInfo, FaKeyboard } from "react-icons/fa";
 import Logo from "../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
-import { HiSpeakerWave } from "react-icons/hi2";
+import { PiSpeakerSimpleHighFill } from "react-icons/pi";
 
 interface NavbarProps {
   onToggleKeyboard: () => void;
@@ -34,7 +34,7 @@ export const Navbar = ({ onToggleKeyboard, onGameMode }: NavbarProps) => {
           onClick={onGameMode}
         />
         <FaInfo className="w-5 h-4 hover:text-gray-300 " />
-        <HiSpeakerWave className="w-5 h-4 hover:text-gray-300 " />
+        <PiSpeakerSimpleHighFill className="w-5 h-4 hover:text-gray-300 " />
       </div>
     </div>
   );
