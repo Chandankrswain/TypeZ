@@ -14,7 +14,7 @@ export const KeyboardGame = () => {
   const [currentKey, setCurrentKey] = useState(""); // Key to press
   const [correctCount, setCorrectCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
-  const [isSoundOn, setIsSoundOn] = useState(false); // ✅ Sound state
+  const [isSoundOn, setIsSoundOn] = useState(false); // Sound state
 
   // Function to generate a new key and update the state immediately
   const generateRandomKey = () => {
@@ -32,7 +32,7 @@ export const KeyboardGame = () => {
 
     if (key === currentKey) {
       setCorrectCount((prev) => prev + 1); // Increase correct count
-      setTimeout(generateRandomKey, 100); // ✅ Ensure new key updates after a small delay
+      setTimeout(generateRandomKey, 100); //  Ensure new key updates after a small delay
     }
   };
 
@@ -45,8 +45,8 @@ export const KeyboardGame = () => {
       <Navbar
         onGameMode={() => {}}
         onToggleKeyboard={() => {}}
-        handleSound={() => setIsSoundOn((prev) => !prev)} // ✅ Toggle sound
-        isSoundOn={isSoundOn} // ✅ Pass sound state
+        handleSound={() => setIsSoundOn((prev) => !prev)} // Toggle sound
+        isSoundOn={isSoundOn} //  Pass sound state
       />
 
       <div className="flex flex-col items-center justify-center h-full">
@@ -64,7 +64,7 @@ export const KeyboardGame = () => {
           <KeyboardGameLayout
             onKeyClick={handleKeyPress}
             targetKey={currentKey}
-            isSoundOn={isSoundOn} // ✅ Pass sound state
+            isSoundOn={isSoundOn} // Pass sound state
           />
         )}
 

@@ -18,9 +18,9 @@ export const KeyboardGameLayout = ({
 
   const [pressedKey, setPressedKey] = useState<string | null>(null);
   const [wrongKey, setWrongKey] = useState<string | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null); // ✅ Persist audio instance
+  const audioRef = useRef<HTMLAudioElement | null>(null); //  Persist audio instance
 
-  // ✅ Initialize audio once
+  //  Initialize audio once
   useEffect(() => {
     audioRef.current = new Audio(keyClickSound);
   }, []);
@@ -38,7 +38,7 @@ export const KeyboardGameLayout = ({
       setPressedKey(key);
       onKeyClick?.(key);
 
-      playSound(); // ✅ Play sound on key press
+      playSound(); // Play sound on key press
 
       if (key === targetKey) {
         setWrongKey(null);
@@ -59,7 +59,7 @@ export const KeyboardGameLayout = ({
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [targetKey, onKeyClick, isSoundOn]); // ✅ Depend on sound toggle
+  }, [targetKey, onKeyClick, isSoundOn]); //  Depend on sound toggle
 
   return (
     <motion.div
@@ -76,7 +76,7 @@ export const KeyboardGameLayout = ({
               key={char}
               onClick={() => {
                 onKeyClick?.(char);
-                playSound(); // ✅ Play sound on click
+                playSound(); //  Play sound on click
               }}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -103,7 +103,7 @@ export const KeyboardGameLayout = ({
           key="space"
           onClick={() => {
             onKeyClick?.(spaceKey);
-            playSound(); // ✅ Play sound on spacebar click
+            playSound(); // Play sound on spacebar click
           }}
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

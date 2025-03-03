@@ -15,7 +15,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
   const [isSoundOn, setIsSoundOn] = useState(false);
-  const [targetKey, setTargetKey] = useState(""); // ✅ Set an initial target key
+  const [targetKey] = useState(""); //  Set an initial target key
 
   const handleGameMode = () => {
     setIsKeyboardVisible(true);
