@@ -10,20 +10,23 @@ import {
   Timer,
 } from "../../components";
 import { useNavigate } from "react-router-dom";
-
 const HomePage = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
-  const [targetKey, setTargetKey] = useState("a");
+  const [isSoundOn, setIsSoundOn] = useState(false);
+  const [targetKey, setTargetKey] = useState(""); // ✅ Set an initial target key
 
   const handleGameMode = () => {
     setIsKeyboardVisible(true);
     navigate("/game");
   };
+
   return (
     <div className="flex flex-col h-screen font-robotoMono justify-between">
       <Navbar
+        isSoundOn={isSoundOn}
+        handleSound={() => setIsSoundOn((prev) => !prev)}
         onToggleKeyboard={() => setIsKeyboardVisible((prev) => !prev)}
         onGameMode={handleGameMode}
       />
@@ -51,8 +54,8 @@ const HomePage = () => {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full"
             >
-              <KeyboardLayout />
-              {/* ✅ Added `targetKey` */}
+              <KeyboardLayout isSoundOn={isSoundOn} targetKey={targetKey} />
+              {/*Pass `targetKey` */}
             </motion.div>
           )}
         </AnimatePresence>
