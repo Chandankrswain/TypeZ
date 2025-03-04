@@ -99,7 +99,7 @@ export const TextBox = ({}: {}) => {
         <input
           ref={inputRef}
           type="text"
-          className="user-select-none bg-transparent whitespace-pre-wrap tracking-wide outline-none text-red-500"
+          className="user-select-none bg-transparent whitespace-pre-wrap tracking-wide outline-none text-transparent"
           onChange={handleInput}
           onKeyDown={handleKeyDown}
           autoFocus
