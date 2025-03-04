@@ -82,9 +82,9 @@ export const TextBox = ({
             className={`transition-all duration-200 ease-out opacity-80 ${
               getUserInput.length > idx
                 ? getUserInput[idx] === char
-                  ? "text-gray-400 opacity-100" // ✅ Correct character (gray)
-                  : "text-[#ca4754] opacity-100" // ❌ Incorrect character (red)
-                : "text-[#646669] opacity-60" // ⏳ Yet to type (faded gray)
+                  ? "text-gray-400 opacity-100" // Correct character (gray)
+                  : "text-[#ca4754] opacity-100" // Incorrect character (red)
+                : "text-[#646669] opacity-60" // Yet to type (faded gray)
             }`}
           >
             {char}
