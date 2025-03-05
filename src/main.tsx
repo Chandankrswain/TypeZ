@@ -12,11 +12,13 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Router>
       <Provider store={store}>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/game" element={<KeyboardGame />} />
-          <Route path="/info" element={<InfoPage />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/game" element={<KeyboardGame />} />
+            <Route path="/info" element={<InfoPage />} />
+          </Routes>
+        </div>
       </Provider>
     </Router>
   </StrictMode>

@@ -54,7 +54,10 @@ export const Navbar = ({
         />
 
         {/* Info Icon (No Toggle) */}
-        <FaInfo className="w-5 h-4 hover:text-gray-300 cursor-pointer" />
+        <FaInfo
+          onClick={() => navigate("/info")}
+          className="w-5 h-4 hover:text-gray-300 cursor-pointer"
+        />
 
         {/* Sound Toggle */}
         <PiSpeakerSimpleHighFill
