@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
-import { nav } from "framer-motion/client";
 
 export const InfoPage = () => {
   const navigate = useNavigate();
