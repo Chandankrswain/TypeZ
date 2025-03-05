@@ -1,12 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
+import { nav } from "framer-motion/client";
 
 export const InfoPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar
         isSoundOn={false}
         onToggleKeyboard={() => {}}
-        onGameMode={() => {}}
+        onGameMode={() => navigate("/game")}
         handleSound={() => {}}
       />
       <div className="p-6 max-w-6xl mx-auto text-lg text-gray-400 font-robotoMono tracking-wide leading-loose">
