@@ -1,7 +1,7 @@
+import { useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { START_TIMER } from "../../features/timeCountSlice";
 import { SET_CORRECT_CHARS, SET_ERRORS } from "../../features/resultSlice";
-import { useEffect, useRef, useState } from "react";
 import { CapslockIndicator } from "../capslock-indicator";
 import { Caret } from "../caret";
 
@@ -14,18 +14,17 @@ export const TextBox = () => {
   const [isCaps, setIsCaps] = useState(false);
   const [isFocused, setIsFocused] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null!); //  Ensures it's always a valid HTMLDivElement
   const isTimerRunning = useAppSelector(
     (state) => state.timeCount.isTimerRunning
   );
 
-  // ⏳ Focus input on mount
   useEffect(() => {
     setTimeout(() => {
       inputRef.current?.focus();
     }, 100);
   }, []);
 
-  // Detect clicks outside the input to remove focus
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -41,7 +40,7 @@ export const TextBox = () => {
   }, []);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (getTime === 0) return; // 🚫 Prevent input when time is 0
+    if (getTime === 0) return;
 
     const inputValue = e.target.value;
 
@@ -53,7 +52,7 @@ export const TextBox = () => {
     dispatch({ type: "typingWords/HANDLE_CHANGE", payload: inputValue });
 
     if (!isTimerRunning) {
-      dispatch(START_TIMER()); // Start timer when typing starts
+      dispatch(START_TIMER());
     }
 
     if (inputValue === "") {
@@ -76,12 +75,12 @@ export const TextBox = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (getTime === 0) {
-      e.preventDefault(); // 🚫 Block key presses after timer ends
+      e.preventDefault();
       return;
     }
 
     if (e.key === "Enter") {
-      e.preventDefault(); // 🚫 Prevent Enter key from submitting
+      e.preventDefault();
     }
 
     setIsCaps(e.getModifierState("CapsLock"));
@@ -91,6 +90,7 @@ export const TextBox = () => {
     <div className="relative text-left flex flex-col mt-4">
       {isCaps && <CapslockIndicator />}
       <div
+        ref={containerRef}
         className={`relative text-3xl tracking-wide leading-12 transition-all duration-300 ${
           isFocused ? "blur-none" : "blur-sm"
         }`}
@@ -101,16 +101,21 @@ export const TextBox = () => {
             className={`transition-all duration-200 ease-out opacity-80 ${
               getUserInput.length > idx
                 ? getUserInput[idx] === char
-                  ? "text-gray-400 opacity-100" // ✅ Correct character (gray)
-                  : "text-[#ca4754] opacity-100" // ❌ Incorrect character (red)
-                : "text-[#646669] opacity-60" // ⏳ Yet to type (faded gray)
+                  ? "text-gray-400 opacity-100"
+                  : "text-[#ca4754] opacity-100"
+                : "text-[#646669] opacity-60"
             }`}
           >
             {char}
           </span>
         ))}
-        {/* ✅ Add animated caret */}
-        <Caret position={getUserInput.length} isFocused={isFocused} />
+        {/* 🔥 Pass containerRef to Caret */}
+
+        <Caret
+          position={getUserInput.length}
+          isFocused={isFocused}
+          containerRef={containerRef}
+        />
       </div>
 
       <input

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useAppSelector } from "../../redux/hooks";
 
 export const Caret = ({
   position,
@@ -12,38 +13,45 @@ export const Caret = ({
 }) => {
   const [caretX, setCaretX] = useState(0);
   const [caretY, setCaretY] = useState(0);
-  const charWidth = 18; // Approximate character width in px
-  const lineHeight = 40; // Approximate line height in px
+  const getUserInput = useAppSelector((state) => state.typingWords.value) || "";
+  // Adjust character & line height based on actual rendering
+  const charWidth = 18.5; // Width of a single character
+  const spaceWidth = 20; // Width of a space
+  const lineHeight = 40; // Line height for wrapping
 
   useEffect(() => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.clientWidth;
-      const charsPerLine = Math.floor(containerWidth / charWidth);
+      let totalWidth = 0;
 
-      const newX = (position % charsPerLine) * charWidth;
-      const newY = Math.floor(position / charsPerLine) * lineHeight;
+      // Loop through user input to calculate width
+      for (let i = 0; i < position; i++) {
+        totalWidth += getUserInput[i] === " " ? spaceWidth : charWidth;
+      }
 
-      setCaretX(newX);
-      setCaretY(newY);
+      // Check if caret should wrap to next line
+      const caretLine = Math.floor(totalWidth / containerWidth);
+      const adjustedX = totalWidth % containerWidth;
+      const adjustedY = caretLine * lineHeight;
+
+      setCaretX(adjustedX);
+      setCaretY(adjustedY);
     }
-  }, [position, containerRef]);
+  }, [position, containerRef, getUserInput]);
 
   return (
     <motion.div
       animate={{
-        opacity: isFocused ? [1, 0.4, 1] : 0,
+        opacity: isFocused ? [1, 0, 1] : 0, // Blinking effect
         x: caretX,
         y: caretY,
-        scaleY: isFocused ? [1, 1.3, 1] : 1,
       }}
       transition={{
-        opacity: { duration: 0.6, repeat: Infinity, ease: "easeInOut" },
-        scaleY: { duration: 0.6, repeat: Infinity, ease: "easeInOut" },
-        x: { type: "spring", stiffness: 150, damping: 10 },
-        y: { type: "spring", stiffness: 100, damping: 10 },
+        opacity: { duration: 0.5, repeat: Infinity, ease: "easeInOut" },
+        x: { type: "spring", stiffness: 100 },
+        y: { type: "spring", stiffness: 100 },
       }}
-      className="absolute w-1 bg-[#bb86fc] rounded-sm"
-      style={{ height: `${lineHeight}px` }}
+      className="absolute top-1 w-[2px] bg-[#bb86fc] rounded-sm h-10"
     />
   );
 };
