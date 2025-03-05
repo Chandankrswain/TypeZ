@@ -11,3 +11,9 @@
   user-select: none !important;
   -webkit-user-select: none !important;
 }
+
+@layer utilities {
+  .placeholder-text-size::placeholder {
+    @apply text-[20px];
+  }
+}

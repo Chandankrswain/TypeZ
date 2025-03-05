@@ -11,7 +11,7 @@ export const TextBox = () => {
   const getUserInput = useAppSelector((state) => state.typingWords.value) || "";
   const getTime = useAppSelector((state) => state.timeCount.value) || 0;
   const [isCaps, setIsCaps] = useState(false);
-  const [isFocused, setIsFocused] = useState(true); //  Track focus state
+  const [isFocused, setIsFocused] = useState(true); // ✅ Track focus state
   const inputRef = useRef<HTMLInputElement>(null);
   const isTimerRunning = useAppSelector(
     (state) => state.timeCount.isTimerRunning
@@ -89,7 +89,13 @@ export const TextBox = () => {
   return (
     <div className="relative text-left flex flex-col mt-4">
       {isCaps && <CapslockIndicator />}
-      <div className="text-3xl tracking-wide leading-12">
+
+      {/* ✅ Blur effect applied when `isFocused` is false */}
+      <div
+        className={`text-3xl tracking-wide leading-12 transition-all duration-300 ${
+          isFocused ? "blur-none" : "blur-sm"
+        }`}
+      >
         {generateRandomWords.split("").map((char, idx) => (
           <span
             key={idx}
@@ -104,21 +110,21 @@ export const TextBox = () => {
             {char}
           </span>
         ))}
-        <br />
-        {/* ✅ Show "Click here to focus" when unfocused */}
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder={!isFocused ? "Click here to focus" : ""}
-          className="user-select-none bg-transparent tracking-wide outline-none text-transparent w-full cursor-pointer placeholder placeholder-gray-400 text-center"
-          onClick={() => setIsFocused(true)} // ✅ Clicking restores focus
-          onChange={handleInput}
-          onKeyDown={handleKeyDown}
-          autoFocus
-          spellCheck="false"
-          disabled={getTime === 0} // ✅ Directly disable input
-        />
       </div>
+
+      {/* ✅ Show "Click here to focus" when unfocused */}
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder={!isFocused ? "Click here to focus" : ""}
+        className="user-select-none bg-transparent tracking-wide outline-none text-transparent w-full cursor-pointer placeholder-gray-500 text-center mt-4"
+        onClick={() => setIsFocused(true)} // ✅ Clicking restores focus
+        onChange={handleInput}
+        onKeyDown={handleKeyDown}
+        autoFocus
+        spellCheck="false"
+        disabled={getTime === 0} // ✅ Directly disable input
+      />
     </div>
   );
 };
