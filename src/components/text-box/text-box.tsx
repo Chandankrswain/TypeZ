@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { START_TIMER } from "../../features/timeCountSlice";
 import { SET_CORRECT_CHARS, SET_ERRORS } from "../../features/resultSlice";
 import { CapslockIndicator } from "../capslock-indicator";
-import { Caret } from "../caret";
 
 export const TextBox = () => {
   const dispatch = useAppDispatch();
