@@ -14,6 +14,10 @@
 
 @layer utilities {
   .placeholder-text-size::placeholder {
-    @apply text-[20px];
+    @apply text-[23px];
+  }
+
+  input::selection {
+    background-color: transparent;
   }
 }

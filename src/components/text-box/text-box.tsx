@@ -86,8 +86,10 @@ export const TextBox = () => {
     setIsCaps(e.getModifierState("CapsLock"));
   };
 
+  console.log("user input", getUserInput);
+
   return (
-    <div className="relative text-left flex flex-col mt-4">
+    <div className="relative text-left flex flex-col mt-4 ">
       {isCaps && <CapslockIndicator />}
       <div
         ref={containerRef}
@@ -95,34 +97,38 @@ export const TextBox = () => {
           isFocused ? "blur-none" : "blur-sm"
         }`}
       >
-        {generateRandomWords.split("").map((char, idx) => (
-          <span
-            key={idx}
-            className={`transition-all duration-200 ease-out opacity-80 ${
-              getUserInput.length > idx
-                ? getUserInput[idx] === char
-                  ? "text-gray-400 opacity-100"
-                  : "text-[#ca4754] opacity-100"
-                : "text-[#646669] opacity-60"
-            }`}
-          >
-            {char}
-          </span>
-        ))}
-        {/* 🔥 Pass containerRef to Caret */}
+        {generateRandomWords.split("").map((char, idx) => {
+          const isTyped = getUserInput.length > idx;
+          const isCurrentChar = getUserInput.length === idx + 1;
+          const isCorrect = isTyped && getUserInput[idx] === char;
 
-        <Caret
-          position={getUserInput.length}
-          isFocused={isFocused}
-          containerRef={containerRef}
-        />
+          return (
+            <span
+              key={idx}
+              className={`${
+                isTyped
+                  ? isCorrect
+                    ? "text-gray-400"
+                    : "text-[#ca4754]"
+                  : "text-[#646669] opacity-60"
+              } 
+              ${
+                isCurrentChar
+                  ? "border-r-[1px] border-[#bb86fc] border-l-transparent"
+                  : "border-none"
+              }`}
+            >
+              {char}
+            </span>
+          );
+        })}
       </div>
 
       <input
         ref={inputRef}
         type="text"
         placeholder={!isFocused ? "Click here to focus" : ""}
-        className="user-select-none bg-transparent tracking-wide outline-none text-transparent w-full cursor-pointer placeholder-gray-500 text-center mt-4"
+        className="absolute top-10 user-select-none bg-transparent tracking-wide outline-none text-transparent w-full cursor-pointer placeholder-gray-400 text-center mt-4"
         onClick={() => setIsFocused(true)}
         onChange={handleInput}
         onKeyDown={handleKeyDown}
