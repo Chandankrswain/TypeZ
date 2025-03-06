@@ -30,58 +30,71 @@ export const InfoPage = () => {
         </p>
 
         <h2 className="text-2xl flex items-center font-semibold mt-6 mb-4 text-[#646669]">
-          <MdLocalOffer className="mr-2 w-8 h-8" /> What We Offer?
+          <MdLocalOffer className="mr-2 w-8 h-8 hover:text-[#bb86fc]" /> What We
+          Offer?
         </h2>
 
         <ul className="list-disc list-inside space-y-2">
           <strong className="text-[#646669] flex items-center">
-            <FaKeyboard className="mr-3" /> Real-Time Typing Experience
+            <FaKeyboard className="mr-3 hover:text-[#bb86fc]" /> Real-Time
+            Typing Experience
           </strong>{" "}
           Our smooth and responsive interface lets you type with{" "}
-          <strong>zero lag</strong>, ensuring a seamless experience.
+          <strong className="text-[#bb86fc]">zero lag</strong>, ensuring a
+          seamless experience.
           <strong className="text-[#646669] flex items-center ">
-            <PiCaretLineRightFill className="mr-3" />
+            <PiCaretLineRightFill className="mr-3 hover:text-[#bb86fc]" />
             Animated Caret
           </strong>{" "}
           With our
-          <strong> dynamic caret animation</strong>, track your position{" "}
-          <strong>word by word</strong> as you type.
+          <strong className="text-[#bb86fc] "> dynamic caret animation</strong>,
+          track your position{" "}
+          <strong className="text-[#bb86fc]">word by word</strong> as you type.
           <strong className="text-[#646669] flex items-center">
-            <MdError className="mr-3" /> Error & Accuracy Tracking
+            <MdError className="mr-3 hover:text-[#bb86fc]" /> Error & Accuracy
+            Tracking
           </strong>{" "}
-          Instantly see your mistakes, analyze your <strong>error rate</strong>,
-          and work on improvement.
+          Instantly see your mistakes, analyze your{" "}
+          <strong className="text-[#bb86fc]">error rate</strong>, and work on
+          improvement.
           <strong className="text-[#646669] flex  items-center">
-            <PiMonitorFill className="mr-3" />
+            <PiMonitorFill className="mr-3 hover:text-[#bb86fc]" />
             Minimalistic & Distraction-Free UI
           </strong>{" "}
-          A clean, simple, and modern design to help you focus entirely on
-          typing.
+          A clean, simple, and{" "}
+          <strong className="text-[#bb86fc]">modern design</strong> to help you
+          focus entirely on typing.
         </ul>
 
         <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669] flex items-center">
-          <HiCursorClick className="mr-3 w-10 h-10" />
+          <HiCursorClick className="mr-3 w-10 h-10 hover:text-[#bb86fc]" />
           Why Choose Us?
         </h2>
         <p className="mb-4">
-          Unlike traditional typing tests, <strong>TypeZ</strong> is built using
-          the latest technologies like{" "}
-          <strong>React, Framer Motion, Redux, and TailwindCSS</strong>,
-          ensuring a{" "}
+          Unlike traditional typing tests,{" "}
+          <strong className="text-[#bb86fc]">TypeZ</strong> is built using the
+          latest technologies like{" "}
+          <strong className="text-[#bb86fc]">
+            React, Framer Motion, Redux, and TailwindCSS
+          </strong>
+          , ensuring a{" "}
           <strong>fast, responsive, and visually appealing experience</strong>.
         </p>
         <p>
           Whether you're <strong>competing against yourself</strong> or
           challenging your friends, our goal is to{" "}
-          <strong>make typing fun, engaging, and rewarding</strong>.
+          <strong className="text-[#bb86fc]">
+            make typing fun, engaging, and rewarding
+          </strong>
+          .
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669] flex items-center">
-          <SiTarget className="mr-3 w-8 h-8" /> Our Mission
+          <SiTarget className="mr-3 w-8 h-8 hover:text-[#bb86fc]" /> Our Mission
         </h2>
         <p className="mb-4">
           We believe that{" "}
-          <strong>
+          <strong className="text-[#bb86fc]">
             typing should be more than just a skill—it should be an experience
           </strong>
           . Our mission is to:
@@ -93,12 +106,13 @@ export const InfoPage = () => {
         </ul>
 
         <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669] flex items-center">
-          <FaLevelUpAlt className=" mr-3" /> Ready to Level Up Your Typing?
+          <FaLevelUpAlt className=" mr-3 hover:text-[#bb86fc]" /> Ready to Level
+          Up Your Typing?
         </h2>
         <p>
           Start your journey today and experience{" "}
           <strong>the future of typing practice</strong> with{" "}
-          <strong>TypeZ</strong>!
+          <strong className="text-[#bb86fc]">TypeZ</strong>!
         </p>
       </div>
       <Footer />
