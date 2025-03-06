@@ -39,7 +39,7 @@ const HomePage = () => {
         <div className="relative flex flex-col items-center w-[80%] transition-all duration-300">
           <Timer inputRef={inputRef} />
           <div>
-            <TextBox divRef={inputRef} />
+            <TextBox />
           </div>
           <RestartButton onRestart={() => window.location.reload()} />
         </div>
