@@ -8,4 +8,3 @@ export * from "./capslock-indicator";
 export * from "./keyboard-layout";
 export * from "./guide";
 export * from "./keyboard-game-layout";
-export * from "./caret";
