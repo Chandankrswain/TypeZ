@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
+import { MdError, MdLocalOffer } from "react-icons/md";
+import { FaKeyboard, FaLevelUpAlt } from "react-icons/fa";
+import { PiCaretLineRightFill, PiMonitorFill } from "react-icons/pi";
+import { SiTarget } from "react-icons/si";
+import { HiCursorClick } from "react-icons/hi";
 
 export const InfoPage = () => {
   const navigate = useNavigate();
@@ -24,46 +29,39 @@ export const InfoPage = () => {
           high WPM scores, our platform is built just for you!
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669]">
-          🌟 What We Offer?
+        <h2 className="text-2xl flex items-center font-semibold mt-6 mb-4 text-[#646669]">
+          <MdLocalOffer className="mr-2 w-8 h-8" /> What We Offer?
         </h2>
+
         <ul className="list-disc list-inside space-y-2">
-          <li>
-            <strong className="text-[#646669]">
-              🚀 Real-Time Typing Experience
-            </strong>{" "}
-            – Our smooth and responsive interface lets you type with{" "}
-            <strong>zero lag</strong>, ensuring a seamless experience.
-          </li>
-          <li>
-            <strong className="text-[#646669]">🎯 Animated Caret</strong> – With
-            our
-            <strong> dynamic caret animation</strong>, track your position{" "}
-            <strong>word by word</strong> as you type.
-          </li>
-          <li>
-            <strong className="text-[#646669]">
-              📊 Error & Accuracy Tracking
-            </strong>{" "}
-            – Instantly see your mistakes, analyze your{" "}
-            <strong>error rate</strong>, and work on improvement.
-          </li>
-          <li>
-            <strong className="text-[#646669]">🎨 Customizable Settings</strong>{" "}
-            – Adjust themes, difficulty levels, and more to suit your typing
-            style.
-          </li>
-          <li>
-            <strong className="text-[#646669]">
-              🧘 Minimalistic & Distraction-Free UI
-            </strong>{" "}
-            – A clean, simple, and modern design to help you focus entirely on
-            typing.
-          </li>
+          <strong className="text-[#646669] flex items-center">
+            <FaKeyboard className="mr-3" /> Real-Time Typing Experience
+          </strong>{" "}
+          Our smooth and responsive interface lets you type with{" "}
+          <strong>zero lag</strong>, ensuring a seamless experience.
+          <strong className="text-[#646669] flex items-center ">
+            <PiCaretLineRightFill className="mr-3" />
+            Animated Caret
+          </strong>{" "}
+          With our
+          <strong> dynamic caret animation</strong>, track your position{" "}
+          <strong>word by word</strong> as you type.
+          <strong className="text-[#646669] flex items-center">
+            <MdError className="mr-3" /> Error & Accuracy Tracking
+          </strong>{" "}
+          Instantly see your mistakes, analyze your <strong>error rate</strong>,
+          and work on improvement.
+          <strong className="text-[#646669] flex  items-center">
+            <PiMonitorFill className="mr-3" />
+            Minimalistic & Distraction-Free UI
+          </strong>{" "}
+          A clean, simple, and modern design to help you focus entirely on
+          typing.
         </ul>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669]">
-          🚀 Why Choose Us?
+        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669] flex items-center">
+          <HiCursorClick className="mr-3 w-10 h-10" />
+          Why Choose Us?
         </h2>
         <p className="mb-4">
           Unlike traditional typing tests, <strong>TypeZ</strong> is built using
@@ -78,8 +76,8 @@ export const InfoPage = () => {
           <strong>make typing fun, engaging, and rewarding</strong>.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669]">
-          🎯 Our Mission
+        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669] flex items-center">
+          <SiTarget className="mr-3 w-8 h-8" /> Our Mission
         </h2>
         <p className="mb-4">
           We believe that{" "}
@@ -89,20 +87,18 @@ export const InfoPage = () => {
           . Our mission is to:
         </p>
         <ul className="list-disc list-inside space-y-2">
-          <li>✅ **Help users type faster & more accurately**</li>
-          <li>✅ **Make learning fun through interactive features**</li>
-          <li>
-            ✅ **Provide an adaptive typing platform for all skill levels**
-          </li>
+          <p>- Help users type faster & more accurately</p>
+          <p>- Make learning fun through interactive features</p>
+          <p>- Provide an adaptive typing platform for all skill levels</p>
         </ul>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669]">
-          🔥 Ready to Level Up Your Typing?
+        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#646669] flex items-center">
+          <FaLevelUpAlt className=" mr-3" /> Ready to Level Up Your Typing?
         </h2>
         <p>
           Start your journey today and experience{" "}
           <strong>the future of typing practice</strong> with{" "}
-          <strong>TypeZ</strong>! 🚀
+          <strong>TypeZ</strong>!
         </p>
       </div>
       <Footer />
