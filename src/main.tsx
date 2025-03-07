@@ -10,7 +10,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Router>
+    <Router basename="">
       <Provider store={store}>
         <div>
           <Routes>
