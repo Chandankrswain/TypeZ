@@ -10,7 +10,6 @@ Whether you're a **beginner** looking to level up or a **typing pro** aiming for
 ✅ **Real-Time Typing Experience** – Type with **zero lag** for a **seamless experience**. ⚡💨  
 ✅ **🔥 Animated Caret** – Watch your caret **move dynamically** as you type. 👀✏️  
 ✅ **📊 Error & Accuracy Tracking** – Instantly **see mistakes, analyze errors & improve**. 🛠️✅  
-✅ **🎨 Customizable UI** – Adjust **themes, fonts & difficulty levels** to match your style. 🎭  
 ✅ **🧘 Minimalistic & Distraction-Free UI** – Stay focused with a **clean & modern design**. 🌿✨  
 
 ---
