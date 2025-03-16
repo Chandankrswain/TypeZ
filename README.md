@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+🚀 Welcome to TypeZ – The Ultimate Typing Experience!
+TypeZ is designed to boost your speed, accuracy, and efficiency while making typing fun & engaging. Whether you're a beginner looking to level up or a typing pro aiming for high WPM scores, we've got you covered! 🎯💻
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🎯 What We Offer?
+✅ Real-Time Typing Experience – Type with zero lag for a seamless experience. ⚡💨
+✅ 🔥 Animated Caret – Watch your caret move dynamically as you type. 👀✏️
+✅ 📊 Error & Accuracy Tracking – Instantly see mistakes, analyze errors & improve. 🛠️✅
+✅ 🎨 Customizable UI – Adjust themes, fonts & difficulty levels to match your style. 🎭
+✅ 🧘 Minimalistic & Distraction-Free UI – Stay focused with a clean & modern design. 🌿✨
 
-Currently, two official plugins are available:
+🚀 Why Choose TypeZ?
+Unlike traditional typing tests, TypeZ is powered by the latest tech:
+🔹 React ⚛️ | 🔹 Framer Motion 🎥 | 🔹 Redux 🎛️ | 🔹 TailwindCSS 🎨
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+We ensure a blazing-fast, responsive, and visually appealing experience. Whether you're competing with yourself or challenging your friends, our goal is to make typing FUN & REWARDING. 🏆💡
 
-## Expanding the ESLint configuration
+🎯 Our Mission
+We believe typing is more than just a skill—it’s an experience! Our mission is to:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+🔹 Help users type faster & more accurately ⏳⌨️
+🔹 Make learning fun with interactive features 🎮📝
+🔹 Provide an adaptive typing platform for all skill levels 🚀📈
 
-- Configure the top-level `parserOptions` property like this:
+🔥 Ready to Level Up Your Typing?
+Start your journey today & experience the future of typing with TypeZ! 🎯⚡
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+🚀 Start Typing Now!
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Preview:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![Screenshot from 2025-03-16 13-49-33](https://github.com/user-attachments/assets/c08d3fc8-cbdf-4116-83e7-e838302233fa)
+![Screenshot from 2025-03-16 13-49-52](https://github.com/user-attachments/assets/21069364-023d-44ba-baab-39f21c491c97)
